@@ -10,18 +10,18 @@ using Entidades;
 
 namespace LibreriaBE
 {
-    public class DatosProfesionales : DatosConexionBD
+    public class DatosLibros : DatosConexionBD
     {
-        public int abmLibros(string accion, Libro objProfesional)
+        public int abmLibros(string accion, Libro objLibro)
         {
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "AgregarLibro")
-                orden = "insert into libro values (" + objProfesional.ISBN +
-                                                            ",'" + objProfesional.Titulo + "');";
+                orden = "insert into Libros (ISBN, Titulo, Autor) values (" + objLibro.ISBN +
+                                                            ",'" + objLibro.Titulo + "','" + objLibro.Autor + "');";
             if (accion == "ModificarLibro")
-                orden = "update libro set Titulo='" + objProfesional.Titulo + "" +
-                                                            "'where ISNB = "+ objProfesional.ISBN + "; ";
+                orden = "update Libros set Titulo='" + objLibro.Titulo + "" +
+                                                            "'where ISBN = "+ objLibro.ISBN + "; ";
             // falta la orden de borrar
 
            SqlCommand cmd = new SqlCommand(orden, conexion);
@@ -33,7 +33,7 @@ namespace LibreriaBE
             }
             catch (Exception e)
             {
-                throw new Exception("Error al tratar de guardar,borrar o modificar de Profesionales",e);
+                throw new Exception("Error al tratar de guardar, borrar o modificar Libros", e);
             }
             finally
             {

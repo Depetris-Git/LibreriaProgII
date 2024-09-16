@@ -9,8 +9,8 @@ namespace Entidades
     public class Libro
     {
         #region Atributos
-       private string titulo;
-       private string iSBN;
+        private string titulo;
+       private int iSBN;
        private string autor;
        private string categoria;
        private int stock;
@@ -23,7 +23,7 @@ namespace Entidades
          set { titulo = value; }
          get { return titulo; }
         }   
-        public string ISBN
+        public int ISBN
         {
         set {  iSBN = value; }
         get { return iSBN; }
@@ -50,14 +50,18 @@ namespace Entidades
         #endregion
 
         #region Constructores
-        public Libro(string tit, string isbn, string aut)
+        public Libro()
+        {
+        
+        }
+        public Libro(string tit, int isbn, string aut)
         {
             titulo = tit;
             iSBN = isbn;
             autor = aut;
             stock = 0;
         }
-        public Libro(string tit, string isbn, string aut, int stk)
+        public Libro(string tit,int isbn, string aut, int stk)
         {
             titulo = tit;
             iSBN = isbn;
@@ -65,7 +69,7 @@ namespace Entidades
             stock = stk;
 
         }
-        public Libro(string tit, string isbn, string aut, string categ, int stk, bool disp)
+        public Libro(string tit, int isbn, string aut, string categ, int stk, bool disp)
         {
             titulo = tit;
             iSBN = isbn;

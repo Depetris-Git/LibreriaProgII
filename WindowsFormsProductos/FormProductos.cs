@@ -1,4 +1,5 @@
-﻿using LibreriaBE;
+﻿using Entidades;
+using LibreriaBE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,9 +24,9 @@ namespace WindowsFormsProductos
             try
             {
                 Libro NuevoLibro;
-                NuevoLibro = new Libro(txt_Titulo.Text, txt_ISNB.Text, txt_Autor.Text);
+                NuevoLibro = new Libro(txt_Titulo.Text, int.Parse(txt_ISNB.Text), txt_Autor.Text);
                 MessageBox.Show("Libro cargado exitosamente.");
-                txt_ISNB_stock.Text = NuevoLibro.ISBN;
+                txt_ISNB_stock.Text = NuevoLibro.ISBN.ToString();
                 txt_Titulo_stock.Text = NuevoLibro.Titulo;
                 txt_StockActual.Text = "Stock Actual: " + NuevoLibro.Stock.ToString();
                 txt_Autor_stock.Text = NuevoLibro.Autor;

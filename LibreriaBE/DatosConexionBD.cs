@@ -46,13 +46,13 @@ namespace LibreriaBE
                 throw new Exception("Error al tratar de cerrar la conexión", e);
             }
         }
-        public DataSet listadoProfesionales(string cual)
+        public DataSet listadoLibros(string cual)
         {
             string orden = string.Empty;
             if (cual != "Todos")
-                orden = "select * from Profesionales where CodProf = " + int.Parse(cual) + ";";
+                orden = "select * from Libros where ISBN = " + int.Parse(cual) + ";";
             else
-                orden = "select * from Profesionales;";
+                orden = "select * from Libros;";
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
@@ -65,7 +65,7 @@ namespace LibreriaBE
             }
             catch (Exception e)
             {
-                throw new Exception("Error al listar profesionales", e);
+                throw new Exception("Error al listar libros", e);
             }
             finally
             {

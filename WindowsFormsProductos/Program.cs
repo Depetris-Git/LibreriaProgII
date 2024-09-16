@@ -16,7 +16,7 @@ namespace WindowsFormsProductos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormProductos());
+            Application.Run(new FormAdmLibros());
         }
     }
 }
